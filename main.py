@@ -26,11 +26,12 @@ def main_events():
 
 # Main loop
 def main():
+  # The bool for the main loop
   running = True
   
   while running:
 
-    # Call events
+    # Call events / update running
     running = main_events()
 
     # Fills window
@@ -42,7 +43,7 @@ def main():
     # Limits the framerate
     clock.tick(config.FPS)
 
-
+  # Close the pygame modules
   pygame.quit()
 
 
