@@ -16,22 +16,22 @@ clock = pygame.time.Clock()
 
 # Event handling
 def main_events():
-  global running
   for event in pygame.event.get():
     # Quits the game when you press the x
     if event.type == pygame.QUIT:
-      running = False
+      return False
+  return True
 
 
 
 # Main loop
 def main():
-  global running
   running = True
+  
   while running:
 
     # Call events
-    main_events()
+    running = main_events()
 
     # Fills window
     screen.fill(config.WHITE)
