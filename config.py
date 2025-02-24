@@ -1,6 +1,6 @@
 # Arden Boettcher
-# 2/11/25
-# Template Config
+# Insert date here
+# Insert title here
 
 # Screen size constants
 WIDTH = 500
