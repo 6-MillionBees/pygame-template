@@ -1,6 +1,6 @@
 # Arden Boettcher
-# 2/11/25
-# Pygame Template
+# Insert date here
+# Insert title here
 
 import pygame
 import config
