@@ -2,51 +2,55 @@
 # Insert date here
 # Insert title here
 
-import pygame
-import config
-pygame.init()
+import pygame as pg
+import sys
+import config as c
+pg.init()
+
+class Main:
+  def __init__(self):
+    # Window
+    self.screen = pg.display.set_mode((c.WIDTH, c.HEIGHT))
+    pg.display.set_caption("PLACEHOLDER")
+
+    # Clock
+    self.clock = pg.time.Clock()
+
+  def run(self):
+    # The bool for the main loop
+    self.running = True
+
+    # Main loop
+    while self.running:
+
+      # Call events / update running
+      self.main_events()
+
+      # Fills window
+      self.screen.fill(c.WHITE)
+
+      # Updates the Display
+      pg.display.flip()
+
+      # Limits the framerate
+      self.clock.tick(c.FPS)
+
+    # Close everything
+    self.quit()
+
+  # Event Handling
+  def main_events(self):
+    for event in pg.event.get():
+      # Quits the game when you press the x
+      if event.type == pg.QUIT:
+        self.running = False
+
+  # Exits the code
+  def quit(self):
+    pg.quit()
+    sys.exit()
 
 
-# Setting up the window
-screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
-pygame.display.set_caption("PLACEHOLDER")
-
-# Setting up the clock
-clock = pygame.time.Clock()
-
-# Event handling
-def main_events():
-  for event in pygame.event.get():
-    # Quits the game when you press the x
-    if event.type == pygame.QUIT:
-      return False
-  return True
-
-
-
-# Main loop
-def main():
-  # The bool for the main loop
-  running = True
-  
-  while running:
-
-    # Call events / update running
-    running = main_events()
-
-    # Fills window
-    screen.fill(config.WHITE)
-
-    # Updates the Display
-    pygame.display.flip()
-
-    # Limits the framerate
-    clock.tick(config.FPS)
-
-  # Close the pygame modules
-  pygame.quit()
-
-
-# Calls the code
 if __name__ == "__main__":
-  main()
+  main = Main()
+  main.run()
