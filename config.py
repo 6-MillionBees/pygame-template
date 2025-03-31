@@ -52,3 +52,12 @@ def rand_vector(min_angle = 0, max_angle = 360):
   x = cos(angle)
   y = sin(angle)
   return pg.math.Vector2(x, y)
+
+
+# Draw Text
+
+def draw_text(surface: pg.Surface, words: str, font: pg.font.Font, pos: tuple, color: tuple, center: tuple = None, antialias = True):
+  text = font.render(words, antialias, color)
+  if center:
+    pos = text.get_rect(center=center)
+  surface.blit(text, pos)

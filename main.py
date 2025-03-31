@@ -5,6 +5,7 @@
 import pygame as pg
 import sys
 import config as c
+from ship import Ship
 pg.init()
 
 class Main:
@@ -16,24 +17,33 @@ class Main:
     # Clock
     self.clock = pg.time.Clock()
 
+    # Ship
+    self.ship = Ship([c.WIDTH / 2, c.HEIGHT / 2], c.RED)
+
+
   def run(self):
     # The bool for the main loop
     self.running = True
 
+    dt = 0
     # Main loop
     while self.running:
 
       # Call events / update running
       self.main_events()
 
+      self.ship.update(dt)
+
       # Fills window
       self.screen.fill(c.WHITE)
+
+      self.ship.draw(self.screen)
 
       # Updates the Display
       pg.display.flip()
 
       # Limits the framerate
-      self.clock.tick(c.FPS)
+      dt = self.clock.tick(c.FPS) / 1000
 
     # Close everything
     self.quit()
